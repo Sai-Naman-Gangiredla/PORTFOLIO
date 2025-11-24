@@ -112,7 +112,7 @@ export default function ContactInfo() {
         <p className="text-sm text-foreground/60">
           I&apos;m always open to discussing new projects, creative ideas, internships, or entry-level opportunities. 
           As a fresher, I bring enthusiasm, fresh perspectives, and a strong foundation in modern technologies. 
-          Let's connect and explore how we can work together!
+          Let&apos;s connect and explore how we can work together!
         </p>
       </Card>
     </div>

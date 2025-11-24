@@ -76,7 +76,7 @@ export default function AboutContent() {
             <h2 className="text-3xl font-heading font-bold mb-6">Beyond Academics</h2>
             <Card className="p-6 hover:shadow-lg transition-shadow space-y-4">
               <p className="text-foreground/80 leading-relaxed">
-                Outside the lab, I'm heavily involved in event management and community initiatives.
+                Outside the lab, I&apos;m heavily involved in event management and community initiatives.
                 I have hosted and coordinated three flagship college events, owning everything from
                 concept and branding to schedules, budgets, and on-stage hosting.
               </p>
