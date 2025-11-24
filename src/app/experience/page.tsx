@@ -32,18 +32,18 @@ export default function ExperiencePage() {
               <Card className="p-6">
                 <h3 className="text-xl font-heading font-semibold mb-4">About My Journey</h3>
                 <p className="text-foreground/80 mb-4">
-                  As a Computer Science Engineering student at VIT-AP University, I've been actively working on various projects 
-                  spanning web development, mobile app development, and AI/ML applications. While I'm a fresher in the professional 
+                  As a Computer Science Engineering student at VIT-AP University, I&apos;ve been actively working on various projects 
+                  spanning web development, mobile app development, and AI/ML applications. While I&apos;m a fresher in the professional 
                   world, I bring enthusiasm, fresh perspectives, and a strong foundation in modern technologies.
                 </p>
                 <p className="text-foreground/80 mb-4">
-                  I'm an excellent listener and doer, always ready to learn and adapt. I can handle multitasking, work under pressure, 
+                  I&apos;m an excellent listener and doer, always ready to learn and adapt. I can handle multitasking, work under pressure, 
                   and complete assigned tasks with perfection. My projects demonstrate my ability to work with diverse technologies and 
                   solve real-world problems.
                 </p>
                 <p className="text-foreground/80">
-                  I'm actively seeking opportunities to apply my skills, learn from experienced professionals, and contribute to 
-                  meaningful projects. I'm open to internships, entry-level positions, and collaborative projects.
+                  I&apos;m actively seeking opportunities to apply my skills, learn from experienced professionals, and contribute to 
+                  meaningful projects. I&apos;m open to internships, entry-level positions, and collaborative projects.
                 </p>
               </Card>
             </motion.div>
