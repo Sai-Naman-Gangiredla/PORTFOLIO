@@ -31,7 +31,7 @@ export const experiences: Experience[] = [
       "Participated in various technical workshops and certifications",
     ],
     technologies: ["Python", "Java", "JavaScript", "HTML/CSS", "Android", "Machine Learning", "Deep Learning", "Flask"],
-    type: undefined,
+    type: "internship",
   },
 ];
 

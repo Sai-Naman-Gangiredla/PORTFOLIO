@@ -14,6 +14,7 @@ export interface Project {
   solution?: string;
   features?: string[];
   screenshots?: string[];
+  pdfUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -158,6 +159,7 @@ export const projects: Project[] = [
     technologies: ["Deep Learning", "Edge Computing", "Python", "Research"],
     category: "backend",
     pdfUrl: "/documents/traffic-prediction.pdf",
+    image: "/projects/traffic-prediction.png",
     slug: "traffic-prediction-research",
     githubUrl: "https://github.com/Sai-Naman-Gangiredla/Research-paper-on-Real-Time-Traffic-Prediction-Using-Deep-Learning-and-Edge-Computing-",
     featured: false,
