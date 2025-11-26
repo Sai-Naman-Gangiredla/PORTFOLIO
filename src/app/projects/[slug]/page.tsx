@@ -116,7 +116,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                   {project.screenshots.map((screenshot, index) => (
                     <div
                       key={index}
-                      className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg"
+                      className="relative overflow-hidden aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg"
                     >
                       {/* Uncomment when you have screenshots */}
                       <Image
