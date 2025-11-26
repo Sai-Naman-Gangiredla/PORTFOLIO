@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getProjectBySlug, projects } from "@/data/projects";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
