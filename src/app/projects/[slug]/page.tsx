@@ -1,3 +1,5 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
@@ -5,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getProjectBySlug, projects } from "@/data/projects";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -28,6 +31,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
 
+  const [openImage, setOpenImage] = useState<string | null>(null);
+
+  // Close modal when pressing ESC
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenImage(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
   if (!project) {
     notFound();
   }
@@ -42,11 +56,15 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               Back to Projects
             </Button>
           </Link>
+
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
               {project.title}
             </h1>
-            <p className="text-xl text-foreground/60 mb-8">{project.longDescription}</p>
+            <p className="text-xl text-foreground/60 mb-8">
+              {project.longDescription}
+            </p>
+
             <div className="flex flex-wrap gap-3 mb-8">
               {project.technologies.map((tech) => (
                 <span
@@ -57,6 +75,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 </span>
               ))}
             </div>
+
             <div className="flex gap-4">
               {project.liveUrl && (
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -88,6 +107,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                   <h2 className="text-2xl font-heading font-bold mb-4">Problem</h2>
                   <p className="text-foreground/80">{project.problem}</p>
                 </Card>
+
                 <Card className="p-6">
                   <h2 className="text-2xl font-heading font-bold mb-4">Solution</h2>
                   <p className="text-foreground/80">{project.solution}</p>
@@ -109,16 +129,18 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               </Card>
             )}
 
+            {/* ------------------ SCREENSHOTS ------------------ */}
             {project.screenshots && project.screenshots.length > 0 && (
               <div>
                 <h2 className="text-2xl font-heading font-bold mb-6">Screenshots</h2>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.screenshots.map((screenshot, index) => (
                     <div
                       key={index}
-                      className="relative overflow-hidden aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg"
+                      onClick={() => setOpenImage(screenshot)}
+                      className="relative overflow-hidden cursor-pointer aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg hover:opacity-80 transition"
                     >
-                      {/* Uncomment when you have screenshots */}
                       <Image
                         src={screenshot}
                         alt={`${project.title} screenshot ${index + 1}`}
@@ -133,7 +155,34 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </div>
         </div>
       </section>
+
+      {/* ------------------ IMAGE MODAL ------------------ */}
+      {openImage && (
+        <>
+          {/* backdrop */}
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[999]"
+            onClick={() => setOpenImage(null)}
+          />
+
+          {/* modal */}
+          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+            <img
+              src={openImage}
+              alt="Screenshot"
+              className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl"
+            />
+
+            {/* close button */}
+            <button
+              onClick={() => setOpenImage(null)}
+              className="absolute top-6 right-6 text-white text-4xl font-bold"
+            >
+              &times;
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
-
