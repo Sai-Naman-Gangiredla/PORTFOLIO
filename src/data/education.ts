@@ -16,7 +16,7 @@ export const education: Education[] = [
     degree: "Bachelor of Technology in Computer Science and Engineering",
     institution: "VIT-AP University",
     location: "Amaravathi, India",
-    startDate: "2021",
+    startDate: "2021-08",
     endDate: "2025-08",
     description: "Completed my engineering in August 2021 with a strong focus on software engineering, algorithms, web development, machine learning, and deep learning.",
     coursework: [
