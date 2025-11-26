@@ -19,8 +19,8 @@ export const experiences: Experience[] = [
     jobTitle: "Computer Science Engineering Student",
     company: "VIT-AP University",
     location: "Amaravathi, India",
-    startDate: "2021-08",
-    endDate: "2025-08",
+    startDate: "",
+    endDate: "",
     description: "Pursuing Bachelor of Technology in Computer Science and Engineering. Actively involved in academic projects, research, and skill development. Working on various projects spanning web development, mobile app development, and AI/ML applications.",
     achievements: [
       "Developed multiple full-stack projects including BrewIt PWA, Product Analyzer, and Bone Fracture Detection system",
