@@ -118,12 +118,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                       className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg"
                     >
                       {/* Uncomment when you have screenshots */}
-                      {/* <Image
+                      <Image
                         src={screenshot}
                         alt={`${project.title} screenshot ${index + 1}`}
                         fill
                         className="object-cover rounded-lg"
-                      /> */}
+                      />
                     </div>
                   ))}
                 </div>
