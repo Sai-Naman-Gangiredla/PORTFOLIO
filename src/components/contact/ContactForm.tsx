@@ -6,41 +6,60 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // prevent default form submission behavior
+    setIsSubmitting(true);
+
+    // send form data to Formspree
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    fetch("https://formspree.io/f/myzqkopj", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        setIsSubmitting(false);
+        if (res.ok) {
+          setIsSuccess(true);
+          form.reset(); // clear form
+
+          // auto-hide popup after 3 seconds
+          setTimeout(() => {
+            setIsSuccess(false);
+          }, 3000);
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => {
+        setIsSubmitting(false);
+        alert("Something went wrong. Please try again.");
+      });
+  };
+
   return (
     <>
-      {/* SUCCESS POPUP */}
+      {/* SUCCESS POPUP with dark glassmorphism */}
       {isSuccess && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-[#111] border border-[#2a2a2a] p-8 rounded-2xl text-center shadow-xl">
+        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+          <div className="bg-black/40 backdrop-blur-md border border-gray-700 p-8 rounded-3xl text-center shadow-xl w-80 transform scale-90 opacity-0 animate-popup">
             <h2 className="text-2xl font-semibold text-green-400 mb-4">
               Message Sent!
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-300">
               Thanks for contacting me. I will get back to you soon.
             </p>
-            <button
-              onClick={() => setIsSuccess(false)}
-              className="px-6 py-2 bg-blue-600 rounded-xl hover:bg-blue-700 transition"
-            >
-              OK
-            </button>
           </div>
         </div>
       )}
 
       <form
-        action="https://formspree.io/f/myzqkopj"
-        method="POST"
+        onSubmit={handleSubmit}
         className="w-full flex flex-col gap-8"
-        onSubmit={() => {
-          setIsSubmitting(true);
-
-          // Wait for Formspree redirect to finish
-          setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSuccess(true);
-          }, 1500);
-        }}
       >
         {/* NAME */}
         <div className="flex flex-col gap-2">
@@ -114,12 +133,10 @@ const ContactForm = () => {
           bg-gradient-to-r from-blue-600 to-purple-600 
           shadow-[0_0_20px_rgba(59,130,246,0.4)] 
           transition transform
-          ${
-            !isSubmitting
-              ? "hover:-translate-y-1 hover:shadow-[0_5px_25px_rgba(59,130,246,0.5)]"
-              : "opacity-60 cursor-not-allowed"
-          }
-        `}
+          ${!isSubmitting
+            ? "hover:-translate-y-1 hover:shadow-[0_5px_25px_rgba(59,130,246,0.5)]"
+            : "opacity-60 cursor-not-allowed"
+          }`}
         >
           {isSubmitting ? (
             <div className="flex items-center justify-center gap-2">
@@ -131,6 +148,27 @@ const ContactForm = () => {
           )}
         </button>
       </form>
+
+      {/* POPUP ANIMATION */}
+      <style jsx>{`
+        @keyframes popup {
+          0% {
+            transform: scale(0.9);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        .animate-popup {
+          animation: popup 0.4s ease forwards;
+        }
+      `}</style>
     </>
   );
 };
