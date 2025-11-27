@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,10 +14,26 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
+// SVG ICONS -------------------------------------------------------
+
+const MenuIcon = () => (
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+// NAVBAR ----------------------------------------------------------
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Lock body scroll when menu is open
+  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
   }, [isMenuOpen]);
@@ -37,7 +52,11 @@ export default function Navbar() {
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-8 glass px-6 py-3 rounded-xl">
         {navLinks.map((link) => (
-          <Link key={link.name} href={link.href} className="hover:text-purple-400 transition">
+          <Link
+            key={link.name}
+            href={link.href}
+            className="hover:text-purple-400 transition"
+          >
             {link.name}
           </Link>
         ))}
@@ -46,9 +65,9 @@ export default function Navbar() {
       {/* Mobile Toggle Button */}
       <button
         className="md:hidden text-3xl"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        {isMenuOpen ? <FiX /> : <FiMenu />}
+        {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
       </button>
 
       {/* Mobile Fullscreen Menu */}
