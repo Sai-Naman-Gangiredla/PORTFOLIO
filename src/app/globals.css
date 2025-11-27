@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --------------------------------------------------
-   Global Body Background + Blur
--------------------------------------------------- */
+/* ---- Global Body Background + Blur ---- */
 body {
   background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.10), transparent 60%),
               radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.10), transparent 60%);
@@ -12,9 +10,7 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* --------------------------------------------------
-   Glassmorphism Utility Class
--------------------------------------------------- */
+/* ---- Glassmorphism ---- */
 .glass {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -24,9 +20,7 @@ body {
   border-radius: 16px;
 }
 
-/* --------------------------------------------------
-   Staggered Menu Animation
--------------------------------------------------- */
+/* ---- Staggered Menu Animation ---- */
 .menu-item {
   opacity: 0;
   transform: translateY(10px);
