@@ -2,38 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---- Global Body Gradient + Blur ---- */
+/* --------------------------------------------------
+   Global Body Background + Blur
+-------------------------------------------------- */
 body {
-  background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.12), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.12), transparent 60%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.10), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.10), transparent 60%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-/* ---- Glassmorphism Base ---- */
+/* --------------------------------------------------
+   Glassmorphism Utility Class
+-------------------------------------------------- */
 .glass {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
 }
 
-/* ---- Smooth Stagger Reveal ---- */
+/* --------------------------------------------------
+   Staggered Menu Animation
+-------------------------------------------------- */
 .menu-item {
   opacity: 0;
-  transform: translateY(8px);
-  animation: staggerFade 0.4s ease forwards;
+  transform: translateY(10px);
+  animation: menuFadeUp 0.45s ease forwards;
 }
 
-.menu-item:nth-child(1) { animation-delay: 0.05s; }
-.menu-item:nth-child(2) { animation-delay: 0.10s; }
-.menu-item:nth-child(3) { animation-delay: 0.15s; }
-.menu-item:nth-child(4) { animation-delay: 0.20s; }
-.menu-item:nth-child(5) { animation-delay: 0.25s; }
-
-@keyframes staggerFade {
+@keyframes menuFadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
