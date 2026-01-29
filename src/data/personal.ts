@@ -12,7 +12,7 @@ export const personalInfo = {
   tagline: "Building innovative solutions with code, creativity, and continuous learning",
   socialLinks: {
     github: "https://github.com/Sai-Naman-Gangiredla",
-    linkedin: "www.linkedin.com/in/sainamangangiredla",
+    linkedin: "www.linkedin.com/in/sainamangangiredla/",
     twitter: "",
     email: "mailto:[email protected]",
   },
