@@ -1,6 +1,6 @@
 # 🚀 Sai Naman Gangiredla — Portfolio
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-View%20Portfolio-blue?style=for-the-badge&logo=vercel)](https://sainamanganiredla.vercel.app/)
+[![Live Site](https://img.shields.io/badge/Live%20Site-View%20Portfolio-blue?style=for-the-badge&logo=vercel)](https://sainamanganiredlaresume.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Vercel](https://img.shields.io/badge/Hosted%20On-Vercel-brightgreen?style=for-the-badge&logo=vercel)](https://vercel.com/)
 [![TailwindCSS](https://img.shields.io/badge/Styled%20With-TailwindCSS-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
@@ -189,7 +189,7 @@ This project is licensed under the **MIT License**.
 
 **Sai Naman Gangiredla**  
 📧 Email: [sainamangangiredla@gmail.com](mailto:sainamangangiredla@gmail.com)  
-🔗 Portfolio: https://sai-naman-gangiredla-portfolio.vercel.app/  
+🔗 Portfolio: https://sainamangangiredlaresume.vercel.app/  
 
 ---
 
